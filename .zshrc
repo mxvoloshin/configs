@@ -12,6 +12,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZSH/custom/plugins/zsh-completions/zsh-completions.zsh
+source $ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Prompt
