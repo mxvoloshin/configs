@@ -1,0 +1,5 @@
+[local]
+localhost ansible_connection=local ansible_user=mvoloshyn ansible_python_interpreter=/usr/bin/python3
+
+[azure]
+azure_vm ansible_host=40.76.115.200 ansible_user=azureuser ansible_ssh_private_key_file=~/.ssh/azure_vm.pem ansible_python_interpreter=/usr/bin/python3

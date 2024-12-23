@@ -1,0 +1,163 @@
+---
+- name: Set up my development environment
+  hosts: all
+  become: false # Avoid running as root
+  gather_facts: false # Disable gathering facts since it require python which is not installed yet
+
+  vars:
+    home_dir: "/home/{{ ansible_user }}"
+    oh_my_zsh_dir: "{{ home_dir }}/.oh-my-zsh"
+
+  tasks:
+  - name: Install Python 3 if not already present
+    raw: |
+      if ! command -v python3 > /dev/null 2>&1; then
+        apt-get update && apt-get install -y python3;
+      fi
+    changed_when: false # Assume the state doesn't change if Python 3 is already installed
+
+  - name: Ensure pip is installed
+    raw: |
+      if ! command -v pip3 > /dev/null 2>&1; then
+        apt-get install -y python3-pip;
+      fi
+    changed_when: false # Assume the state doesn't change if Python 3 is already installed
+
+  - name: Install python3-venv if not installed
+    apt:
+      name: python3-venv
+
+  - name: Create a virtual environment
+    command: python3 -m venv /home/{{ ansible_user }}/myenv
+    become: true
+
+  - name: Install six and ansible in the virtual environment
+    command: /home/{{ ansible_user }}/myenv/bin/pip install six ansible
+
+  - name: Configure Git user.name
+    command: git config --global user.name "Maksym Voloshyn"
+
+  - name: Configure Git user.email
+    command: git config --global user.email "mx.voloshin@gmail.com"
+
+  - name: Check .gitconfig file contents
+    command: cat /home/{{ ansible_user }}/.gitconfig
+    register: gitconfig_contents
+
+  - name: Show .gitconfig contents
+    debug:
+      var: gitconfig_contents.stdout
+
+  - name: Install Zsh
+    apt:
+      name: zsh
+
+  - name: Set Zsh as default shell
+    shell: chsh -s $(which zsh) {{ ansible_user }}
+    become: true
+
+  - name: Check if oh-my-zsh is already installed
+    stat:
+      path: "{{ oh_my_zsh_dir }}"
+    register: oh_my_zsh_installed
+
+  - name: Install oh-my-zsh using curl
+    shell: |
+      sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    when: not oh_my_zsh_installed.stat.exists # Do not run the installation if oh-my-zsh already installed
+
+  - name: Install Node.js and npm
+    become: true
+    apt:
+      name:
+      - nodejs
+      - npm
+      state: present
+      update_cache: yes
+
+  - name: Verify npm installation
+    command: npm --version
+    register: npm_version
+
+  - name: Show npm version
+    debug:
+      var: npm_version.stdout
+
+  - name: Install pure-prompt globally using npm
+    shell: npm install --global pure-prompt
+    become: true
+
+  - name: Remove existing zsh-autosuggestions directory
+    become: true
+    file:
+      path: "{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+      state: absent
+
+  - name: Clone zsh-autosuggestions plugin
+    git:
+      repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+      dest: '{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions'
+      update: yes
+      clone: yes
+
+  - name: Remove existing zsh-syntax-highlighting directory
+    become: true
+    file:
+      path: '{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
+      state: absent
+
+  - name: Clone zsh-syntax-highlighting plugin
+    git:
+      repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+      dest: '{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting'
+      update: yes
+      clone: yes
+
+  - name: Remove existing zsh-completions directory
+    become: true
+    file:
+      path: '{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-completions'
+      state: absent
+
+  - name: Clone zsh-completions plugin
+    git:
+      repo: 'https://github.com/zsh-users/zsh-completions.git'
+      dest: '{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-completions'
+      update: yes
+      clone: yes
+
+  - name: Remove existing zsh-history-substring-search directory
+    become: true
+    file:
+      path: '{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-history-substring-search'
+      state: absent
+
+  - name: Clone zsh-history-substring-search plugin
+    git:
+      repo: 'https://github.com/zsh-users/zsh-history-substring-search.git'
+      dest: '{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-history-substring-search'
+      update: yes
+      clone: yes
+
+  - name: Remove existing configs repository
+    become: true
+    file:
+      path: '/home/{{ ansible_user }}/repos/configs'
+      state: absent
+
+  - name: Clone the configs repository
+    git:
+      repo: 'https://github.com/mxvoloshin/configs'
+      dest: '/home/{{ ansible_user }}/repos/configs'
+      update: yes
+      clone: yes
+
+  - name: Replace .zshrc with the one from the configs repository
+    copy:
+      src: '/home/{{ ansible_user }}/repos/configs/.zshrc'
+      dest: '/home/{{ ansible_user }}/.zshrc'
+      owner: '{{ ansible_user }}'
+      group: '{{ ansible_user }}'
+      mode: '0644'
+      force: yes
+      remote_src: yes # Indicates that the source file is on the remote machine
