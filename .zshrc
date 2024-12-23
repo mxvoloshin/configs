@@ -19,13 +19,10 @@ source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Prompt
 PURE_GIT_PULL=0
 
-autoload -U promptinit
+autoload -Uz promptinit
 promptinit
-prompt pure
+prompt fade
 
 # Aliases
 alias ls='ls --color=auto'
 alias la='ls -lathr'
-
-# Terminal autocomplete fix
-autoload -Uz compinit && compinit
