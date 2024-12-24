@@ -59,3 +59,13 @@
     mode: "0644"
     force: yes
     remote_src: yes # Indicates that the source file is on the remote machine
+
+- name: Install fd-find, bat, fzf
+  become: true
+  apt:
+    name:
+      - fd-find
+      - bat
+      - fzf
+    state: present
+    update_cache: yes

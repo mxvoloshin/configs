@@ -1,0 +1,27 @@
+- name: Install tmux
+  become: true
+  apt:
+    name:
+      - tmux
+    state: present
+    update_cache: yes
+
+- name: Clone TPM repo
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: ~/.tmux/plugins/tpm
+    clone: yes
+    update: yes
+
+- name: Replace .tmux.conf with the one from the dotfiles repository
+  copy:
+    src: "/home/{{ ansible_user }}/repos/dotfiles/.tmux.conf"
+    dest: "/home/{{ ansible_user }}/.tmux.conf"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: "0644"
+    force: yes
+    remote_src: yes # Indicates that the source file is on the remote machine
+
+- name: Source the tmux configuration
+  command: tmux source-file ~/.tmux.conf
