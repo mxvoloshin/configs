@@ -1,0 +1,20 @@
+- name: Install Node.js and npm
+  become: true
+  apt:
+    name:
+      - nodejs
+      - npm
+    state: present
+    update_cache: yes
+
+- name: Verify npm installation
+  command: npm --version
+  register: npm_version
+
+- name: Show npm version
+  debug:
+    var: npm_version.stdout
+
+- name: Install pure-prompt globally using npm
+  shell: npm install --global pure-prompt
+  become: true

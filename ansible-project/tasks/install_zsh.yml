@@ -1,0 +1,17 @@
+- name: Install Zsh
+  apt:
+    name: zsh
+
+- name: Set Zsh as default shell
+  shell: chsh -s $(which zsh) {{ ansible_user }}
+  become: true
+
+- name: Check if oh-my-zsh is already installed
+  stat:
+    path: "{{ oh_my_zsh_dir }}"
+  register: oh_my_zsh_installed
+
+- name: Install oh-my-zsh using curl
+  shell: |
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  when: not oh_my_zsh_installed.stat.exists # Do not run the installation if oh-my-zsh already installed

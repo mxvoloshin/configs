@@ -1,0 +1,12 @@
+- name: Remove existing dotfiles repository
+  become: true
+  file:
+    path: "/home/{{ ansible_user }}/repos/dotfiles"
+    state: absent
+
+- name: Clone the dotfiles repository
+  git:
+    repo: "https://github.com/mxvoloshin/dotfiles"
+    dest: "/home/{{ ansible_user }}/repos/dotfiles"
+    update: yes
+    clone: yes
