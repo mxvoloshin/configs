@@ -12,7 +12,7 @@
     - include_tasks: tasks/setup_python.yml
     - include_tasks: tasks/configure_git.yml
     - include_tasks: tasks/clone_dotfiles.yml
-    - include_tasks: tasks/install_zsh.yml
     - include_tasks: tasks/install_nodejs.yml
+    - include_tasks: tasks/install_zsh.yml    
     - include_tasks: tasks/install_zsh_plugins.yml
     - include_tasks: tasks/install_tmux.yml
