@@ -14,7 +14,3 @@
 - name: Show npm version
   debug:
     var: npm_version.stdout
-
-- name: Install pure-prompt globally using npm
-  shell: npm install --global pure-prompt
-  become: true
