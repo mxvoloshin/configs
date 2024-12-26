@@ -5,7 +5,7 @@
   command: git config --global user.email "mx.voloshin@gmail.com"
 
 - name: Check .gitconfig file contents
-  command: cat /home/{{ ansible_user }}/.gitconfig
+  command: cat {{ home_dir }}/.gitconfig
   register: gitconfig_contents
 
 - name: Show .gitconfig contents

@@ -15,7 +15,3 @@
   shell: |
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   when: not oh_my_zsh_installed.stat.exists # Do not run the installation if oh-my-zsh already installed
-
-- name: Install pure-prompt globally using npm
-  shell: npm install --global pure-prompt
-  become: true

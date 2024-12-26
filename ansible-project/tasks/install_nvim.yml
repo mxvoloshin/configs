@@ -1,0 +1,36 @@
+- name: Remove existing nvim repository
+  become: true
+  file:
+    path: "{{ home_dir }}/.config/nvim"
+    state: absent
+
+- name: Clone the nvim repository
+  git:
+    repo: "https://github.com/mxvoloshin/kickstart.nvim"
+    dest: "{{ home_dir }}/.config/nvim"
+    update: yes
+    clone: yes
+
+- name: Add Neovim PPA repository
+  become: true
+  apt_repository:
+    repo: ppa:neovim-ppa/unstable
+    state: present
+    update_cache: yes
+
+- name: Update the apt package cache
+  become: true
+  apt:
+    update_cache: yes
+
+- name: Install nvim required dependencies
+  become: true
+  apt:
+    name:
+      - make
+      - gcc
+      - ripgrep
+      - unzip
+      - xclip
+      - neovim
+    state: present
