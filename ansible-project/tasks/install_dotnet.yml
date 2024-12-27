@@ -1,0 +1,5 @@
+- name: Install .NET SDK 8.0
+  become: true
+  apt:
+    name: "dotnet-sdk-8.0"
+    state: present
