@@ -16,5 +16,5 @@
     - include_tasks: tasks/install_zsh.yml
     - include_tasks: tasks/install_zsh_plugins.yml
     - include_tasks: tasks/install_tmux.yml
-    - include_tasks: tasks/install_nvim.yml
     - include_tasks: tasks/install_dotnet.yml
+    - include_tasks: tasks/install_nvim.yml

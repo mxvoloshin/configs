@@ -3,3 +3,10 @@
   apt:
     name: "dotnet-sdk-8.0"
     state: present
+- name: Install csharpier globally
+  ansible.builtin.shell:
+    cmd: dotnet tool install -g csharpier
+  environment:
+    PATH: "{{ ansible_env.HOME }}/.dotnet/tools:{{ ansible_env.PATH }}"
+  register: csharpier_install
+  changed_when: "'was already installed' not in csharpier_install.stdout"    
