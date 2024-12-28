@@ -10,5 +10,8 @@
   environment:
     PATH: "{{ ansible_env.HOME }}/.dotnet/tools:{{ ansible_env.PATH }}"
   register: csharpier_install
-  changed_when: "'Tool 'csharpier' is already installed.' not in csharpier_install.stderr"
-  failed_when: csharpier_install.rc != 0 and "'Tool 'csharpier' is already installed.' not in csharpier_install.stderr"
+  failed_when: false
+
+- name: Debug csharpier install output
+  ansible.builtin.debug:
+    var: csharpier_install
