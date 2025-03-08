@@ -1,31 +1,52 @@
-andenetalexander.vim-cheatsheet
-angular.ng-template
-bierner.markdown-mermaid
-dbaeumer.vscode-eslint
+// Git and Version Control
 eamodio.gitlens
-editorconfig.editorconfig
-esbenp.prettier-vscode
+pomber.git-file-history
+
+// GitHub Copilot
 github.copilot
 github.copilot-chat
-hashicorp.terraform
-johnpapa.angular2
-moshfeu.compare-folders
+
+// Azure Tools
 ms-azure-devops.azure-pipelines
-ms-azuretools.vscode-azure-github-copilot
 ms-azuretools.vscode-azureresourcegroups
 ms-azuretools.vscode-docker
+
+// Microsoft SQL Server
+ms-mssql.data-workspace-vscode
+ms-mssql.mssql
+
+// Remote Development
+ms-vscode-remote.remote-containers
+ms-vscode-remote.remote-wsl
+
+// .NET Development
 ms-dotnettools.csdevkit
 ms-dotnettools.csharp
 ms-dotnettools.vscode-dotnet-runtime
-ms-mssql.data-workspace-vscode
-ms-mssql.mssql
-ms-mssql.sql-bindings-vscode
-ms-vscode-remote.remote-containers
-ms-vscode-remote.remote-wsl
-ms-vscode.powershell
-pkief.material-icon-theme
-pomber.git-file-history
+
+// Angular Development
+angular.ng-template
+johnpapa.angular2
+
+// Linting and Formatting
+dbaeumer.vscode-eslint
+esbenp.prettier-vscode
 rvest.vs-code-prettier-eslint
-tombonnike.vscode-status-bar-format-toggle
-vscodevim.vim
+
+// Markdown and Documentation
+bierner.markdown-mermaid
+
+// Editor Configuration
+editorconfig.editorconfig
+
+// Themes and Icons
+pkief.material-icon-theme
 zhuangtongfa.material-theme
+
+// Vim Emulation
+andenetalexander.vim-cheatsheet
+vscodevim.vim
+
+// Miscellaneous
+moshfeu.compare-folders
+tombonnike.vscode-status-bar-format-toggle
