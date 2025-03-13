@@ -15,10 +15,80 @@
   "editor.wordWrapColumn": 100,
   "diffEditor.wordWrap": "off",
 
+  // SQL settings
+  "[sql]": {
+    "editor.defaultFormatter": "ms-mssql.mssql"
+  },
+
   // JSON settings
   "[json]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
+
+  // MSSQL connections
+  "mssql.connections": [
+    {
+      "server": "devsql.mnp.ca",
+      "database": "MPM_Data",
+      "authenticationType": "Integrated",
+      "profileName": "Dev",
+      "encrypt": "Mandatory",
+      "trustServerCertificate": true,
+      "user": "",
+      "password": "",
+      "connectTimeout": 15,
+      "commandTimeout": 30,
+      "applicationName": "vscode-mssql"
+    },
+    {
+      "server": "qasql.mnp.ca",
+      "database": "MPM_Data",
+      "authenticationType": "Integrated",
+      "profileName": "QA",
+      "password": ""
+    },
+    {
+      "server": "devsql.mnp.ca",
+      "database": "mnp_help",
+      "authenticationType": "Integrated",
+      "profileName": "Dev_MNP_Help",
+      "encrypt": "Mandatory",
+      "trustServerCertificate": true,
+      "user": "",
+      "password": "",
+      "connectTimeout": 15,
+      "commandTimeout": 30,
+      "applicationName": "vscode-mssql"
+    },
+    {
+      "connectionString": "Microsoft.SqlTools|itemtype:Profile|server:127.0.0.1,56114|user:sa|isConnectionString:true",
+      "database": "",
+      "user": "sa",
+      "server": "127.0.0.1,56114",
+      "authenticationType": "SqlLogin",
+      "savePassword": true,
+      "password": ""
+    },
+    {
+      "connectionString": "Microsoft.SqlTools|itemtype:Profile|server:127.0.0.1,60631|user:sa|isConnectionString:true",
+      "profileName": "localhost",
+      "database": "",
+      "user": "sa",
+      "server": "127.0.0.1,60631",
+      "authenticationType": "SqlLogin",
+      "savePassword": true,
+      "password": ""
+    },
+    {
+      "connectionString": "Server=tcp:firmit-sql-engagement-dev01.database.windows.net,1433;Initial Catalog=firmit-sqldb-engagement-workflowtask-dev01;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=\"Active Directory Default\";",
+      "profileName": "workflowtask",
+      "database": "firmit-sqldb-engagement-workflowtask-dev01",
+      "user": "",
+      "server": "tcp:firmit-sql-engagement-dev01.database.windows.net,1433",
+      "authenticationType": "Integrated",
+      "password": ""
+    }
+  ],
 
   // GitHub Copilot settings
   "github.copilot.editor.enableAutoCompletions": true,
@@ -85,8 +155,46 @@
   // Vim settings
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.duration": 500,
   "vim.leader": "<Space>",
   "editor.lineNumbers": "relative",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
+    },
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      "before": ["c"],
+      "after": ["\"", "_", "c"]
+    },
+    {
+      "before": ["C"],
+      "after": ["\"", "_", "C"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    {
+      "before": ["c"],
+      "after": ["\"", "_", "c"]
+    }
+  ],
 
   // Diff editor settings
   "diffEditor.hideUnchangedRegions.enabled": true,
@@ -97,4 +205,10 @@
   // MSSQL settings
   "mssql.enableRichExperiences": true,
   "mssql.enableRichExperiencesDoNotShowPrompt": true,
+
+  // RedHat telemetry settings
+  "redhat.telemetry.enabled": false,
+
+  // SonarLint settings
+  "sonarlint.connectedMode.connections.sonarqube": []
 }
