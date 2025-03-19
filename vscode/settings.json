@@ -1,5 +1,5 @@
 {
-    // General settings
+  // General settings
   "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "material-icon-theme",
   "security.workspace.trust.untrustedFiles": "open",
@@ -114,6 +114,91 @@
     {
       "before": ["C"],
       "after": ["\"", "_", "C"]
+    },
+    {
+      "before": ["<leader>", "g", "e"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "g", "c"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "g", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "g", "s"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "g", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["<leader>", "g", "y"],
+      "commands": ["editor.action.goToTypeDefinition"]
+    },
+    {
+      "before": ["<leader>", "g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["<leader>", "g", "l"],
+      "commands": ["workbench.action.gotoLine"]
+    },
+    {
+      "before": ["<leader>", "u", "g"],
+      "commands": ["references-view.findReferences"]
+    },
+    {
+      "before": ["<leader>", "u", "u"],
+      "commands": ["references-view.findReferences"]
+    },
+    {
+      "before": ["<leader>", "t", "d"],
+      "commands": ["editor.action.peekTypeDefinition"]
+    },
+    {
+      "before": ["<leader>", "t", "i"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["<leader>", "s", "h"],
+      "commands": ["editor.action.showHover"]
+    },
+    { "before": ["<leader>", "f"], "commands": ["actions.find"] },
+    {
+      "before": ["<leader>", "r", "f"],
+      "commands": ["editor.action.startFindReplaceAction"]
+    },
+    { "before": ["<leader>", "r", "n"], "commands": ["editor.action.rename"] },
+    {
+      "before": ["<leader>", "r", "s"],
+      "commands": ["editor.action.changeAll"]
+    },
+    {
+      "before": ["<leader>", "<leader>"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["<leader>", "o", "i"],
+      "commands": ["editor.action.organizeImports"]
+    },
+    { "before": ["<C-k>"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["<C-l>"], "commands": ["editor.action.moveLinesUpAction"] },
+    {
+      "before": ["<leader>", "q", "q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "q", "a"],
+      "commands": ["workbench.action.closeAllEditors"]
+    },
+    { "before": ["leader", "o", "r"], "commands": ["workbench.action.openRecent"] },
+    {
+      "before": ["leader", "g", "t"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -130,7 +215,6 @@
       "after": ["\"", "_", "c"]
     }
   ],
-
   // Diff editor settings
   "diffEditor.hideUnchangedRegions.enabled": true,
 
@@ -146,4 +230,5 @@
 
   // SonarLint settings
   "sonarlint.connectedMode.connections.sonarqube": [],
+
 }
