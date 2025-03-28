@@ -231,4 +231,11 @@
   // SonarLint settings
   "sonarlint.connectedMode.connections.sonarqube": [],
 
+  // Terminal autocompletions
+  "terminal.integrated.suggest.enabled": true,
+  "terminal.integrated.suggest.quickSuggestions": {
+    "commands": "on",
+    "arguments": "on",
+    "unknown": "off"
+  },
 }
