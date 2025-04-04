@@ -42,6 +42,9 @@ editorconfig.editorconfig
 // Themes and Icons
 pkief.material-icon-theme
 zhuangtongfa.material-theme
+chadalen.vscode-jetbrains-icon-theme
+digimezzo.jetbrains-rider-new-ui-theme
+edwinsulaiman.jetbrains-rider-dark-theme
 
 // Vim Emulation
 andenetalexander.vim-cheatsheet
