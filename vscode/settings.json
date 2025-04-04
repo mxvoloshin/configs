@@ -1,7 +1,7 @@
 {
-  // General settings
-  "workbench.colorTheme": "One Dark Pro",
-  "workbench.iconTheme": "material-icon-theme",
+  // General settings  
+  "workbench.colorTheme": "JetBrains Rider New UI Dark",
+  "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-dark",
   "security.workspace.trust.untrustedFiles": "open",
   "explorer.confirmDelete": false,
   "git.enableSmartCommit": true,
@@ -57,6 +57,9 @@
   },
 
   // Editor settings
+  "editor.bracketPairColorization.enabled": false,
+  "editor.lineHeight": 23,
+  "editor.rulers": [120],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
   "editor.codeLensFontFamily": "JetBrainsMono Nerd Font Mono",
