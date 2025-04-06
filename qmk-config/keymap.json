@@ -45,8 +45,8 @@
       "KC_RSFT",
       "KC_LALT",
       "MO(2)",
-      "KC_SPC",
       "KC_BSPC",
+      "KC_SPC",
       "MO(1)",
       "KC_RCTL"
     ],
