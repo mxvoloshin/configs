@@ -1,14 +1,13 @@
 {
-  // General settings  
-  "workbench.colorTheme": "JetBrains Rider New UI Dark",
-  "workbench.iconTheme": "vscode-jetbrains-icon-theme-2023-dark",
+  // General settings
+  "workbench.colorTheme": "Catppuccin Macchiato",
   "security.workspace.trust.untrustedFiles": "open",
   "explorer.confirmDelete": false,
   "git.enableSmartCommit": true,
   "git.autofetch": true,
   "explorer.confirmDragAndDrop": false,
   "git.confirmSync": false,
-  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
@@ -22,11 +21,13 @@
 
   // JSON settings
   "[json]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
 
   // GitHub Copilot settings
   "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "chat.agent.enabled": true,
 
   // TypeScript settings
   "[typescript]": {
@@ -61,19 +62,20 @@
   "editor.lineHeight": 23,
   "editor.rulers": [120],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
-  "editor.codeLensFontFamily": "JetBrainsMono Nerd Font Mono",
-  "editor.inlayHints.fontFamily": "JetBrainsMono Nerd Font Mono",
-  "editor.inlineSuggest.fontFamily": "JetBrainsMono Nerd Font Mono",
-  "scm.inputFontFamily": "JetBrainsMono Nerd Font Mono",
-  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
-  "notebook.output.fontFamily": "JetBrainsMono Nerd Font Mono",
-  "chat.editor.fontFamily": "JetBrainsMono Nerd Font Mono",
-  "debug.console.fontFamily": "JetBrainsMono Nerd Font Mono",
-  "editor.fontSize": 12,
-  "debug.console.fontSize": 12,
-  "terminal.integrated.fontSize": 12,
-  "chat.editor.fontSize": 12,
+  "editor.fontFamily": "UbuntuMono Nerd Font",
+  "editor.codeLensFontFamily": "UbuntuMono Nerd Font",
+  "editor.inlayHints.fontFamily": "UbuntuMono Nerd Font",
+  "editor.inlineSuggest.fontFamily": "UbuntuMono Nerd Font",
+  "scm.inputFontFamily": "UbuntuMono Nerd Font",
+  "terminal.integrated.fontFamily": "UbuntuMono Nerd Font",
+  "notebook.output.fontFamily": "UbuntuMono Nerd Font",
+  "chat.editor.fontFamily": "UbuntuMono Nerd Font",
+  "debug.console.fontFamily": "UbuntuMono Nerd Font",
+  "editor.fontSize": 14,
+  "debug.console.fontSize": 14,
+  "terminal.integrated.fontSize": 14,
+  "chat.editor.fontSize": 14,
+  "window.zoomLevel": 1,  // Default is 0, try 1 or -1
 
   // Git settings
   "git.openRepositoryInParentFolders": "always",
@@ -86,8 +88,7 @@
   "workbench.editor.wrapTabs": true,
   "workbench.editor.enablePreviewFromCodeNavigation": true,
   "workbench.editor.enablePreviewFromQuickOpen": true,
-  "workbench.editor.enablePreview": true,
-  "workbench.editor.showTabs": "single",
+  "workbench.editor.showTabs": "multiple",
   "window.density.editorTabHeight": "compact",
 
   // Vim settings
@@ -198,10 +199,29 @@
       "before": ["<leader>", "q", "a"],
       "commands": ["workbench.action.closeAllEditors"]
     },
-    { "before": ["leader", "o", "r"], "commands": ["workbench.action.openRecent"] },
+    {
+      "before": ["leader", "o", "r"],
+      "commands": ["workbench.action.openRecent"]
+    },
     {
       "before": ["leader", "g", "t"],
       "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    {
+      "before": ["<leader>", "g", "b"],
+      "commands": ["workbench.action.navigateBack"]
+    },
+    {
+      "before": ["<leader>", "g", "n"],
+      "commands": ["workbench.action.navigateForward"]
+    },
+    {
+      "before": ["<leader>", "s", "a"],
+      "commands": ["workbench.action.files.saveAll"]
+    },
+    {
+      "before": ["<leader>", "s", "f"],
+      "commands": ["workbench.action.files.save"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -228,17 +248,125 @@
   "mssql.enableRichExperiences": true,
   "mssql.enableRichExperiencesDoNotShowPrompt": true,
 
-  // RedHat telemetry settings
-  "redhat.telemetry.enabled": false,
 
   // SonarLint settings
   "sonarlint.connectedMode.connections.sonarqube": [],
 
-  // Terminal autocompletions
-  "terminal.integrated.suggest.enabled": true,
+  // MSSQL connections
+  "mssql.connections": [
+    {
+      "server": "qasql.mnp.ca",
+      "database": "MPM_Data",
+      "authenticationType": "Integrated",
+      "profileName": "qasql.mnp.ca",
+      "password": "",
+      "displayName": "qasql.mnp.ca",
+      "id": "52657891-8AA8-44AB-B170-893B94E28053",
+      "groupId": "D0ED9527-35FB-44DC-9B63-49CA01063C07",
+      "profileSource": 0
+    },
+    {
+      "authenticationType": "Integrated",
+      "connectTimeout": 30,
+      "applicationName": "vscode-mssql",
+      "profileName": "sqlcentral.mnp.ca",
+      "server": "sqlcentral.mnp.ca",
+      "database": "",
+      "trustServerCertificate": true,
+      "password": "",
+      "id": "23C8FF37-767A-4D64-AC9B-2D7BFDEFCA4B",
+      "groupId": "D0ED9527-35FB-44DC-9B63-49CA01063C07",
+      "profileSource": 0
+    },
+    {
+      "authenticationType": "Integrated",
+      "connectTimeout": 30,
+      "applicationName": "vscode-mssql",
+      "applicationIntent": "ReadWrite",
+      "server": "sqlcentralro.mnp.ca",
+      "database": "MPM_Data",
+      "commandTimeout": 30,
+      "encrypt": "Mandatory",
+      "profileName": "sqlcentralro.mnp.ca",
+      "trustServerCertificate": true,
+      "groupId": "D0ED9527-35FB-44DC-9B63-49CA01063C07",
+      "id": "ECEF1994-2F5F-4BF1-BD1F-BFE8DA859702",
+      "user": "",
+      "password": ""
+    },
+    {
+      "server": "devsql.mnp.ca",
+      "database": "MPM_Data",
+      "authenticationType": "Integrated",
+      "profileName": "devsql.mnp.ca",
+      "encrypt": "Mandatory",
+      "trustServerCertificate": true,
+      "user": "",
+      "password": "",
+      "connectTimeout": 15,
+      "commandTimeout": 30,
+      "applicationName": "vscode-mssql",
+      "displayName": "Dev",
+      "id": "149650D4-AA86-459B-BA06-7661F541F6EA",
+      "groupId": "D0ED9527-35FB-44DC-9B63-49CA01063C07",
+      "profileSource": 0
+    }
+  ],
+  "extensions.ignoreRecommendations": true,
+  "mssql.autoDisableNonTSqlLanguageService": false,
+  "terminal.integrated.suggest.enabled": false,
   "terminal.integrated.suggest.quickSuggestions": {
     "commands": "on",
     "arguments": "on",
     "unknown": "off"
   },
+  "mssql.connectionGroups": [
+    {
+      "name": "ROOT",
+      "id": "D0ED9527-35FB-44DC-9B63-49CA01063C07"
+    }
+  ],
+  "github.copilot.chat.languageContext.fix.typescript.enabled": true,
+  "github.copilot.chat.languageContext.inline.typescript.enabled": true,
+  "github.copilot.chat.languageContext.typescript.enabled": true,
+  "editor.minimap.enabled": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false,
+    "csharp": true,
+    "sql": true
+  },
+  "files.autoSave": "afterDelay",
+  "chat.mcp.autostart": "newAndOutdated",
+  "chat.mcp.gallery.enabled": true,
+  "editor.inlineSuggest.edits.showCollapsed": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "diffEditor.maxComputationTime": 0,
+  "chat.tools.terminal.autoApprove": {
+    "New-Item": true,
+    "Move-Item": true
+  },
+  "remote.autoForwardPortsSource": "hybrid",
+  "chat.instructionsFilesLocations": {
+    ".github/instructions": true,
+    "/home/vscode/.aitk/instructions/": true
+  },
+  "chat.tools.urls.autoApprove": {
+    "https://github.com": {
+      "approveRequest": false,
+      "approveResponse": true
+    }
+  },
+  "chat.viewSessions.orientation": "stacked",
+  "terminal.integrated.suggest.cdPath": "off",
+  "terminal.integrated.suggest.inlineSuggestion": "off",
+  "terminal.integrated.suggest.providers": {
+    "lsp": false,
+    "vscode.terminal-suggest": false
+  },
+  "workbench.iconTheme": "material-icon-theme"
 }
