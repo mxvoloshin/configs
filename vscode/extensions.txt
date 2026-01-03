@@ -1,55 +1,17 @@
-// Git and Version Control
-eamodio.gitlens
-pomber.git-file-history
-
-// GitHub Copilot
+bierner.markdown-mermaid
+catppuccin.catppuccin-vsc
+cucumberopen.cucumber-official
+dbaeumer.vscode-eslint
+editorconfig.editorconfig
+esbenp.prettier-vscode
 github.copilot
 github.copilot-chat
-
-// Azure Tools
-ms-azure-devops.azure-pipelines
-ms-azuretools.vscode-azureresourcegroups
-ms-azuretools.vscode-docker
-
-// Microsoft SQL Server
-ms-mssql.data-workspace-vscode
-ms-mssql.mssql
-
-// Remote Development
-ms-vscode-remote.remote-containers
-ms-vscode-remote.remote-wsl
-
-// .NET Development
+hashicorp.terraform
+jetbrains.resharper-code
 ms-dotnettools.csdevkit
 ms-dotnettools.csharp
 ms-dotnettools.vscode-dotnet-runtime
-
-// Angular Development
-angular.ng-template
-johnpapa.angular2
-
-// Linting and Formatting
-dbaeumer.vscode-eslint
-esbenp.prettier-vscode
-rvest.vs-code-prettier-eslint
-
-// Markdown and Documentation
-bierner.markdown-mermaid
-
-// Editor Configuration
-editorconfig.editorconfig
-
-// Themes and Icons
+ms-mssql.mssql
+ms-vscode-remote.remote-containers
+ms-vscode-remote.remote-wsl
 pkief.material-icon-theme
-zhuangtongfa.material-theme
-chadalen.vscode-jetbrains-icon-theme
-digimezzo.jetbrains-rider-new-ui-theme
-edwinsulaiman.jetbrains-rider-dark-theme
-
-// Vim Emulation
-andenetalexander.vim-cheatsheet
-vscodevim.vim
-
-// Miscellaneous
-moshfeu.compare-folders
-tombonnike.vscode-status-bar-format-toggle
